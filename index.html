@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<title>Welcome to Worxphere</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Google+Sans+Flex:wght@700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -33,7 +33,6 @@
     overflow-x: hidden;
   }
 
-  /* Grid noise background */
   body::before {
     content: '';
     position: fixed;
@@ -82,11 +81,12 @@
   }
 
   .hero-title {
-    font-family: var(--font-head);
+    font-family: 'Google Sans Flex', var(--font-head);
     font-size: clamp(36px, 8vw, 52px);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.05;
     letter-spacing: -.02em;
+    color: #ffffff;
   }
 
   .hero-title .line2 {
@@ -157,8 +157,6 @@
     padding: 20px 20px 20px 0;
     border-bottom: 1px solid var(--border);
     align-items: start;
-    transition: background .2s;
-    cursor: default;
   }
 
   .step:last-child { border-bottom: none; }
@@ -203,11 +201,7 @@
 
   .card:hover { border-color: rgba(108,99,255,.3); transform: translateY(-2px); }
 
-  .card-icon {
-    font-size: 20px;
-    line-height: 1;
-    margin-bottom: 2px;
-  }
+  .card-icon { font-size: 20px; line-height: 1; margin-bottom: 2px; }
 
   .card-title {
     font-family: var(--font-head);
@@ -235,21 +229,15 @@
     border: 1px solid var(--border);
     border-radius: 100px;
     font-size: 12px;
-    font-weight: 400;
     color: var(--text-muted);
     transition: all .2s;
-    cursor: default;
   }
 
   .tool-chip:hover { border-color: rgba(108,99,255,.4); color: var(--text); }
 
-  .tool-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
+  .tool-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
 
-  /* ── Contact strip ── */
+  /* ── Contact ── */
   .contact {
     margin-top: 48px;
     padding: 28px;
@@ -273,17 +261,9 @@
     margin-bottom: 4px;
   }
 
-  .contact-text .name {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--text);
-  }
+  .contact-text .name { font-size: 15px; font-weight: 500; color: var(--text); }
 
-  .contact-text .role {
-    font-size: 12px;
-    color: var(--text-muted);
-    font-weight: 300;
-  }
+  .contact-text .role { font-size: 12px; color: var(--text-muted); font-weight: 300; }
 
   .contact-btn {
     display: inline-flex;
@@ -326,13 +306,7 @@
   }
 
   .footer-logo span { color: var(--accent); }
-
-  .footer-copy {
-    font-size: 11px;
-    color: var(--text-muted);
-    font-weight: 300;
-    opacity: .5;
-  }
+  .footer-copy { font-size: 11px; color: var(--text-muted); opacity: .5; }
 
   /* ── Animations ── */
   @keyframes fadeUp {
@@ -351,9 +325,7 @@
   .contact { animation-delay: .35s; }
   .footer  { animation-delay: .4s; }
 
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; }
-  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
 
   @media (max-width: 480px) {
     .cards { grid-template-columns: 1fr; }
@@ -365,7 +337,6 @@
 <body>
 <div class="page">
 
-  <!-- Hero -->
   <div class="hero">
     <span class="hero-tag">Welcome Kit</span>
     <h1 class="hero-title">
@@ -373,7 +344,7 @@
       <span class="line2">Worxphere.</span>
     </h1>
     <p class="hero-desc">
-      함께하게 되어 정말 반가워요. 이 페이지는 첫 출근을 조금 더 편하게 시작할 수 있도록 준비했어요.
+      함께하게 되어 정말 반가워요. 이건 웰컴키트 가이드 북 NFC를 위한 테스트 테스트 테스트
     </p>
     <div class="hero-meta">
       <span class="hero-date">2025 Onboarding Guide</span>
@@ -382,7 +353,6 @@
     </div>
   </div>
 
-  <!-- First steps -->
   <div class="section">
     <div class="section-label">Day 1 체크리스트</div>
     <div class="steps">
@@ -417,7 +387,6 @@
     </div>
   </div>
 
-  <!-- Info cards -->
   <div class="section">
     <div class="section-label">꼭 알아두세요</div>
     <div class="cards">
@@ -444,7 +413,6 @@
     </div>
   </div>
 
-  <!-- Tools -->
   <div class="section">
     <div class="section-label">주요 사용 도구</div>
     <div class="tools">
@@ -458,7 +426,6 @@
     </div>
   </div>
 
-  <!-- Contact -->
   <div class="contact">
     <div class="contact-text">
       <div class="label">온보딩 담당자</div>
@@ -468,7 +435,6 @@
     <button class="contact-btn">Slack으로 연락 →</button>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
     <div class="footer-logo"><span>Worx</span>phere</div>
     <div class="footer-copy">© 2025 Worxphere Inc.</div>
