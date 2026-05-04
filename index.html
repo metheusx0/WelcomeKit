@@ -4,460 +4,138 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Welcome to Worxphere</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Google+Sans+Flex:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --bg: #0a0a0f;
-    --surface: #13131a;
-    --surface2: #1c1c27;
-    --accent: #6c63ff;
-    --accent2: #ff6b9d;
-    --accent3: #00d4aa;
-    --text: #f0f0f5;
-    --text-muted: #8888a0;
-    --border: rgba(255,255,255,0.06);
-    --font-head: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --bg-dark: #0a0a0a;
+    --bg-light: #e8e6e1;
+    --text-dark: #111111;
+    --font-en: 'Syne', sans-serif;
+    --font-kr: 'Noto Sans KR', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
+  body { background: var(--bg-dark); overflow-x: hidden; }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 15px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(108,99,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(108,99,255,0.03) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .page { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
-
-  /* ── Hero Image ── */
-  .hero-image {
-    margin: 0 -24px;
-    width: calc(100% + 48px);
+  /* ── Section 1: Hero Image ── */
+  .section-hero {
+    width: 100%;
+    min-height: 100svh;
     overflow: hidden;
-    border-radius: 0 0 20px 20px;
   }
 
-  .hero-image img {
+  .section-hero img {
+    width: 100%;
+    height: 100svh;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  /* ── Section 2: 우리가 일하는 방식 ── */
+  .section-way {
+    background: var(--bg-light);
+    padding: 100px 48px 120px;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .way-title {
+    font-family: var(--font-kr);
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 72px;
+    letter-spacing: -0.02em;
+  }
+
+  .way-body {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 640px;
+  }
+
+  .way-block {
+    display: flex;
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .way-bar {
+    width: 1.5px;
+    background: var(--text-dark);
+    flex-shrink: 0;
+    opacity: 0.35;
+  }
+
+  .way-text {
+    font-family: var(--font-kr);
+    font-size: clamp(15px, 2.2vw, 19px);
+    font-weight: 400;
+    color: var(--text-dark);
+    line-height: 2;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Section 3: Kit Image ── */
+  .section-kit {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .section-kit img {
     width: 100%;
     height: auto;
     display: block;
   }
 
-  /* ── Hero ── */
-  .hero {
-    padding: 64px 0 56px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    animation: fadeUp .8s ease both;
-  }
-
-  .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-head);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--accent3);
-    padding: 6px 14px;
-    border: 1px solid rgba(0,212,170,0.2);
-    border-radius: 100px;
-    width: fit-content;
-  }
-
-  .hero-tag::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--accent3);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  .hero-title {
-    font-family: 'Google Sans Flex', var(--font-head);
-    font-size: clamp(36px, 8vw, 52px);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -.02em;
-    color: #ffffff;
-  }
-
-  .hero-title .line2 {
-    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-desc {
-    font-size: 16px;
-    color: var(--text-muted);
-    font-weight: 300;
-    max-width: 480px;
-    line-height: 1.7;
-  }
-
-  .hero-meta {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding-top: 8px;
-  }
-
-  .hero-date {
-    font-size: 12px;
-    color: var(--text-muted);
-    font-family: var(--font-head);
-    letter-spacing: .06em;
-  }
-
-  .hero-divider { width: 1px; height: 14px; background: var(--border); }
-
-  /* ── Section ── */
-  .section {
-    margin-top: 48px;
-    animation: fadeUp .8s ease both;
-  }
-
-  .section-label {
-    font-family: var(--font-head);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
-    opacity: .3;
-  }
-
-  /* ── Steps ── */
-  .steps { display: flex; flex-direction: column; gap: 2px; }
-
-  .step {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: 16px;
-    padding: 20px 20px 20px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: start;
-  }
-
-  .step:last-child { border-bottom: none; }
-
-  .step-num {
-    font-family: var(--font-head);
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--accent);
-    padding-top: 3px;
-    letter-spacing: .06em;
-  }
-
-  .step-title {
-    font-family: var(--font-head);
-    font-size: 15px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    color: var(--text);
-  }
-
-  .step-desc {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-weight: 300;
-    line-height: 1.6;
-  }
-
-  /* ── Info cards ── */
-  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    transition: border-color .2s, transform .2s;
-  }
-
-  .card:hover { border-color: rgba(108,99,255,.3); transform: translateY(-2px); }
-
-  .card-icon { font-size: 20px; line-height: 1; margin-bottom: 2px; }
-
-  .card-title {
-    font-family: var(--font-head);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .card-desc {
-    font-size: 12px;
-    color: var(--text-muted);
-    font-weight: 300;
-    line-height: 1.5;
-  }
-
-  /* ── Tools ── */
-  .tools { display: flex; flex-wrap: wrap; gap: 8px; }
-
-  .tool-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    font-size: 12px;
-    color: var(--text-muted);
-    transition: all .2s;
-  }
-
-  .tool-chip:hover { border-color: rgba(108,99,255,.4); color: var(--text); }
-
-  .tool-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-
-  /* ── Contact ── */
-  .contact {
-    margin-top: 48px;
-    padding: 28px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    animation: fadeUp .8s ease both;
-  }
-
-  .contact-text .label {
-    font-family: var(--font-head);
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--accent);
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  .contact-text .name { font-size: 15px; font-weight: 500; color: var(--text); }
-
-  .contact-text .role { font-size: 12px; color: var(--text-muted); font-weight: 300; }
-
-  .contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, var(--accent), #9b8fff);
-    border-radius: 100px;
-    font-size: 12px;
-    font-weight: 500;
-    color: #fff;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: opacity .2s, transform .2s;
-    font-family: var(--font-head);
-    letter-spacing: .04em;
-    cursor: pointer;
-    border: none;
-  }
-
-  .contact-btn:hover { opacity: .85; transform: scale(1.02); }
-
-  /* ── Footer ── */
-  .footer {
-    margin-top: 56px;
-    padding-top: 28px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    animation: fadeUp .8s ease both;
-  }
-
-  .footer-logo {
-    font-family: var(--font-head);
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-muted);
-    letter-spacing: .04em;
-  }
-
-  .footer-logo span { color: var(--accent); }
-  .footer-copy { font-size: 11px; color: var(--text-muted); opacity: .5; }
-
-  /* ── Animations ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: .3; }
-  }
-
-  .section:nth-child(2) { animation-delay: .1s; }
-  .section:nth-child(3) { animation-delay: .2s; }
-  .section:nth-child(4) { animation-delay: .3s; }
-  .contact { animation-delay: .35s; }
-  .footer  { animation-delay: .4s; }
-
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
-
+  /* ── Mobile ── */
   @media (max-width: 480px) {
-    .cards { grid-template-columns: 1fr; }
-    .contact { flex-direction: column; align-items: flex-start; }
-    .hero-title { font-size: 36px; }
+    .section-way { padding: 72px 28px 88px; }
+    .way-title { margin-bottom: 48px; }
   }
 </style>
 </head>
 <body>
-<div class="page">
 
-  <div class="hero-image">
-    <img src="hero.png" alt="Welcome to Worxphere">
-  </div>
+  <!-- Section 1: Hero -->
+  <section class="section-hero">
+    <img src="intro.png" alt="Welcome to Worxphere">
+  </section>
 
-  <div class="hero">
-    <span class="hero-tag">Welcome Kit</span>
-    <h1 class="hero-title">
-      Welcome to<br>
-      <span class="line2">Worxphere.</span>
-    </h1>
-    <p class="hero-desc">
-      함께하게 되어 정말 반가워요. 이건 웰컴키트 가이드 북 NFC를 위한 테스트 테스트 테스트
-    </p>
-    <div class="hero-meta">
-      <span class="hero-date">2025 Onboarding Guide</span>
-      <div class="hero-divider"></div>
-      <span class="hero-date">worxphere.ai</span>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">Day 1 체크리스트</div>
-    <div class="steps">
-      <div class="step">
-        <span class="step-num">01</span>
-        <div>
-          <div class="step-title">계정 설정하기</div>
-          <div class="step-desc">회사 이메일로 Google Workspace에 로그인하고 프로필 사진을 등록해주세요. IT팀에서 초대 메일을 보내드렸어요.</div>
-        </div>
+  <!-- Section 2: 우리가 일하는 방식 -->
+  <section class="section-way">
+    <h2 class="way-title">우리가<br>일하는 방식</h2>
+    <div class="way-body">
+      <div class="way-block">
+        <div class="way-bar"></div>
+        <p class="way-text">
+          우리는 성장을 기록하고,<br>
+          함께 대화하며,<br>
+          서로의 우산이 되고,<br>
+          일 너머를 경험합니다.
+        </p>
       </div>
-      <div class="step">
-        <span class="step-num">02</span>
-        <div>
-          <div class="step-title">Slack 채널 참여</div>
-          <div class="step-desc">#general, #random, 그리고 본인 팀 채널에 참여해주세요. 모르는 게 있으면 언제든 #ask-anything 에 질문하면 돼요.</div>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num">03</span>
-        <div>
-          <div class="step-title">팀 미팅 참석</div>
-          <div class="step-desc">매주 월요일 오전 10시에 전체 팀 미팅이 있어요. 캘린더 초대를 확인해주세요.</div>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-num">04</span>
-        <div>
-          <div class="step-title">온보딩 문서 읽기</div>
-          <div class="step-desc">Notion의 'New Joiner' 페이지에서 팀 문화, 업무 방식, 자주 쓰는 용어를 확인해보세요.</div>
-        </div>
+      <div class="way-block">
+        <div class="way-bar"></div>
+        <p class="way-text">
+          이곳은 우리가 일하는 방식이자,<br>
+          당신이 경험하게 될 여정의 시작점입니다.
+        </p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section">
-    <div class="section-label">꼭 알아두세요</div>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">🕐</div>
-        <div class="card-title">근무 시간</div>
-        <div class="card-desc">코어타임 오전 11시 – 오후 4시. 그 외 시간은 자율적으로 운영해요.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🏠</div>
-        <div class="card-title">재택 근무</div>
-        <div class="card-desc">주 2회 재택 가능. 팀 캘린더에 미리 표시해주세요.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon">🍱</div>
-        <div class="card-title">점심 식대</div>
-        <div class="card-desc">법인카드 월 20만원 한도. 팀원들과 함께하면 더 좋아요.</div>
-      </div>
-      <div class="card">
-        <div class="card-icon">📚</div>
-        <div class="card-title">교육 지원</div>
-        <div class="card-desc">도서 구매, 강의, 컨퍼런스 연간 50만원 지원해드려요.</div>
-      </div>
-    </div>
-  </div>
+  <!-- Section 3: 일상으로 이어지는 경험 -->
+  <section class="section-kit">
+    <img src="kit.png" alt="일상으로 이어지는 경험">
+  </section>
 
-  <div class="section">
-    <div class="section-label">주요 사용 도구</div>
-    <div class="tools">
-      <div class="tool-chip"><span class="tool-dot" style="background:#4ade80"></span>Slack</div>
-      <div class="tool-chip"><span class="tool-dot" style="background:#60a5fa"></span>Notion</div>
-      <div class="tool-chip"><span class="tool-dot" style="background:#f472b6"></span>Figma</div>
-      <div class="tool-chip"><span class="tool-dot" style="background:#fb923c"></span>Jira</div>
-      <div class="tool-chip"><span class="tool-dot" style="background:#a78bfa"></span>Google Workspace</div>
-      <div class="tool-chip"><span class="tool-dot" style="background:#34d399"></span>GitHub</div>
-      <div class="tool-chip"><span class="tool-dot" style="background:#fbbf24"></span>Zoom</div>
-    </div>
-  </div>
-
-  <div class="contact">
-    <div class="contact-text">
-      <div class="label">온보딩 담당자</div>
-      <div class="name">김민지 — People Team</div>
-      <div class="role">minji@worxphere.ai &nbsp;·&nbsp; Slack @minji</div>
-    </div>
-    <button class="contact-btn">Slack으로 연락 →</button>
-  </div>
-
-  <div class="footer">
-    <div class="footer-logo"><span>Worx</span>phere</div>
-    <div class="footer-copy">© 2025 Worxphere Inc.</div>
-  </div>
-
-</div>
 </body>
 </html>
