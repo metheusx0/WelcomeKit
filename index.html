@@ -47,6 +47,20 @@
 
   .page { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
 
+  /* ── Hero Image ── */
+  .hero-image {
+    margin: 0 -24px;
+    width: calc(100% + 48px);
+    overflow: hidden;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
   /* ── Hero ── */
   .hero {
     padding: 64px 0 56px;
@@ -336,6 +350,10 @@
 </head>
 <body>
 <div class="page">
+
+  <div class="hero-image">
+    <img src="hero.png" alt="Welcome to Worxphere">
+  </div>
 
   <div class="hero">
     <span class="hero-tag">Welcome Kit</span>
