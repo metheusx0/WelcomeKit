@@ -4,21 +4,82 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Welcome to Worxphere</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #0a0a0a; overflow-x: hidden; }
 
-  section { width: 100%; }
-  section img { width: 100%; height: auto; display: block; }
+  /* 이미지 섹션 */
+  .section-img { width: 100%; }
+  .section-img img { width: 100%; height: auto; display: block; }
+
+  /* 텍스트 섹션 */
+  .section-way {
+    background: #e8e6e1;
+    padding: 80px 40px 100px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  .way-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #111;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 64px;
+  }
+
+  .way-block {
+    border-left: 2px solid rgba(17,17,17,0.35);
+    padding-left: 24px;
+    margin-bottom: 0;
+  }
+
+  .way-block:last-child { margin-bottom: 0; }
+
+  .way-text {
+    font-size: 17px;
+    font-weight: 400;
+    color: #111;
+    line-height: 2;
+    letter-spacing: -0.01em;
+  }
+
+  .way-text.bold {
+    font-weight: 700;
+  }
+
+  @media (max-width: 480px) {
+    .section-way { padding: 64px 28px 80px; }
+    .way-title { font-size: 32px; margin-bottom: 48px; }
+    .way-text { font-size: 15px; }
+  }
 </style>
 </head>
 <body>
 
-  <section>
+  <section class="section-img">
     <img src="intro.png" alt="Welcome to Worxphere">
   </section>
 
-  <section>
+  <section class="section-way">
+    <h2 class="way-title">우리가<br>일하는 방식</h2>
+
+    <div style="border-left: 2px solid rgba(17,17,17,0.35); padding-left: 24px; display: flex; flex-direction: column; gap: 32px;">
+      <p class="way-text">
+        우리는 성장을 기록하고,<br>
+        함께 대화하며,<br>
+        서로의 우산이 되고,<br>
+        일 너머를 경험합니다.
+      </p>
+      <p class="way-text bold">
+        이곳은 우리가 일하는 방식이자,<br>
+        당신이 경험하게 될 여정의 시작점입니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-img">
     <img src="kit.png" alt="일상으로 이어지는 경험">
   </section>
 
