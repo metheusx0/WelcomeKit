@@ -64,14 +64,16 @@
   .way-block {
     display: flex;
     gap: 28px;
-    align-items: stretch;
+    align-items: flex-start;
   }
 
   .way-bar {
-    width: 1.5px;
+    width: 2px;
+    align-self: stretch;
     background: var(--text-dark);
     flex-shrink: 0;
-    opacity: 0.35;
+    opacity: 0.4;
+    border-radius: 2px;
   }
 
   .way-text {
